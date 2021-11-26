@@ -8,33 +8,32 @@
     "dev": "webpack serve",
     "bundle": "webpack "
   },
-
   "lint-staged": {
     "src/**/*.{js,json,scss,ts,vue}": [
       "prettier --write",
       "git add"
     ]
   },
-
-
-
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.16.4",
     "html-webpack-plugin": "^5.5.0",
-    "lint-staged": "^12.1.2",
+    "lint-staged": "^11.0.0",
     "prettier": "^2.5.0",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.6.0"
+    "webpack-dev-server": "^4.6.0",
+    "yorkie": "^2.0.0"
   },
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "babel-loader": "^8.2.3",
-    "babel-runtime": "^6.26.0",
-    "yorkie": "^2.0.0"
+    "babel-runtime": "^6.26.0"
   }
 }
