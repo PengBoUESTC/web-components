@@ -39,10 +39,15 @@ module.exports = {
   },
   
   plugins: [
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, './src/public/index.html')
+    }),
   ],
 
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      "@components": path.join(__dirname, './src/components')
+    }
   },
 };

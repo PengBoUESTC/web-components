@@ -1,3 +1,3 @@
-console.log(1111);
+import { defineButton } from '@components/index';
 
-console.log(1111);
+defineButton();
