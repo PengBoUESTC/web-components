@@ -1,18 +1,18 @@
-export default function defineButtom() {
+export default function defineButton() {
   const template = document.createElement('template');
 
   template.innerHTML = `
     <style>
       .container {
-        padding: 8px;
+        padding: 0.08rem;
       }
   
       button {
         display: block;
         overflow: hidden;
         position: relative;
-        padding: 0 16px;
-        font-size: 16px;
+        padding: 0 0.16rem;
+        font-size: 0.16rem;
         font-weight: bold;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -20,7 +20,7 @@ export default function defineButtom() {
         outline: none;
   
         width: 100%;
-        height: 40px;
+        height: 0.4rem;
   
         box-sizing: border-box;
         border: 1px solid #a1a1a1;
@@ -32,17 +32,54 @@ export default function defineButtom() {
     </style>
   
     <div class="container">
-      <button>Label</button>
+      <button>webComponents</button>
     </div>
   `;
 
+  // document.createDocumentFragment()
   class Button extends HTMLElement {
     private _shadowRoot: ShadowRoot;
+    private $button: HTMLButtonElement | null;
+
     constructor() {
       super();
 
       this._shadowRoot = this.attachShadow({ mode: 'open' });
       this._shadowRoot.appendChild(template.content.cloneNode(true));
+      this.$button = this._shadowRoot.querySelector('button');
+    }
+
+    // lifeCyles
+    connectedCallback() {
+      console.log(`${this.tagName || ''} connected`);
+    }
+
+    disconnectedCallback() {}
+
+    adoptedCallback() {}
+
+    get label() {
+      return this.getAttribute('label') || 'name';
+    }
+
+    // set attr by assign
+    set label(value) {
+      this.setAttribute('label', value);
+    }
+
+    // observe user define attrs
+    static get observedAttributes() {
+      return ['label'];
+    }
+
+    // callback when observed attrs change
+    attributeChangedCallback() {
+      this.render();
+    }
+
+    render() {
+      if (!this.$button) return;
+      this.$button.innerHTML = this.label;
     }
   }
 
