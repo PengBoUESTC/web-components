@@ -36,7 +36,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.html?$/,
+        test: /\.p?$/,
         use: 'html-loader',
         exclude: [/node_modules/, /public/],
       },
