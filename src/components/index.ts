@@ -1,1 +1,1 @@
-export { default as defineButton } from './my-button';
+export { default as defineButton } from './tmp-button';
