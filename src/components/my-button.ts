@@ -1,4 +1,4 @@
-import templateHtml from '../template/button.p';
+import templateHtml from '@template/button.p';
 
 export default function defineButton() {
   const template = document.createElement('template');

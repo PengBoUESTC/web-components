@@ -26,12 +26,12 @@
       "@components/*": ["./src/components/*"],
       "@utils/*": ["./src/utils/*"],
       "@common/*": ["./src/common/*"],
+      "@template/*": ["./src/template/*"],
       "@types/*": ["./types/*"],
     }
   },
   "exclude": [
     "node_modules",
-    "dist"
   ],
   "compileOnSave": false
 }
