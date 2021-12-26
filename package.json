@@ -35,8 +35,10 @@
   "dependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
+    "D": "^1.0.0",
     "babel-loader": "^8.2.3",
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "html-loader": "^3.0.1"
   },
   "homepage": "https://PengBoUESTC.github.io/web-components"
 }
