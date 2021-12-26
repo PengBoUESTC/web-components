@@ -1,3 +1,3 @@
 import { defineButton } from '@components/index';
 
-defineButton();
+defineButton('tmp-button');

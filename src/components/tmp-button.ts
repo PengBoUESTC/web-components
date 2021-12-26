@@ -1,6 +1,6 @@
 import templateHtml from '@template/button.p';
 
-export default function defineButton() {
+export default function defineButton(tagName: string) {
   const template = document.createElement('template');
 
   template.innerHTML = templateHtml;
@@ -51,5 +51,5 @@ export default function defineButton() {
     }
   }
 
-  window.customElements.define('my-button', Button);
+  window.customElements.define(tagName, Button);
 }
