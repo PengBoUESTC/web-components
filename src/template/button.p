@@ -1,33 +1,51 @@
 
-<div class="container">
-  <button>webComponents</button>
+<div class="tmp-container">
+  <button>
+    <slot name="btn-content"></slot>
+  </button>
 </div>
 
 <style>
-  .container {
+  .tmp-container {
     padding: 0.08rem;
   }
 
+  .main {
+    background:linear-gradient(318deg, #ff4f18 0%, #f10000 100%);
+  }
+
+  .success {
+    background-color: #67c23a;
+  }
+
+  .error {
+    background-color: #f56c6c;
+  }
+
+  .warn {
+    background-color: #e6a23c;
+  }
+
   button {
-    display: block;
-    overflow: hidden;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.2rem;
+    height: 0.4rem;
     padding: 0 0.16rem;
+    box-sizing: border-box;
+
+    border: none;
+    outline: none;
+
     font-size: 0.16rem;
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
-    cursor: pointer;
-    outline: none;
+    color: #fff;
 
-    width: 100%;
-    height: 0.4rem;
-
-    box-sizing: border-box;
-    border: 1px solid #a1a1a1;
-    background: #ffffff;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.05), 0 2px 8px 0 rgba(161,161,161, 0.4);
-    color: #363636;
+    background: transparent;
     cursor: pointer;
+    border-radius: 0.3rem;
   }
 </style>

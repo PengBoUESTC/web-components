@@ -1,5 +1,14 @@
 import templateHtml from '@template/button.p';
 
+type Btn_Type = 'main' | 'error' | 'success' | 'warn';
+
+const Map_Type_Class = {
+  main: 'main',
+  error: 'error',
+  success: 'success',
+  warn: 'warn',
+};
+
 export default function defineButton(tagName: string) {
   const template = document.createElement('template');
 
@@ -26,18 +35,27 @@ export default function defineButton(tagName: string) {
 
     adoptedCallback() {}
 
-    get label() {
-      return this.getAttribute('label') || 'name';
+    get label(): string | null {
+      return this.getAttribute('label');
     }
 
     // set attr by assign
-    set label(value) {
-      this.setAttribute('label', value);
+    set label(value: string | null) {
+      value && this.setAttribute('label', value);
+    }
+
+    set type(value: Btn_Type) {
+      this.setAttribute('type', value);
+    }
+
+    get type() {
+      // @ts-ignore
+      return this.getAttribute('type') || 'main';
     }
 
     // observe user define attrs
     static get observedAttributes() {
-      return ['label'];
+      return ['label', 'type'];
     }
 
     // callback when observed attrs change
@@ -47,7 +65,10 @@ export default function defineButton(tagName: string) {
 
     render() {
       if (!this.$button) return;
-      this.$button.innerHTML = this.label;
+      if (this.label != null) {
+        this.$button.innerHTML = this.label;
+      }
+      this.$button.className = Map_Type_Class[this.type];
     }
   }
 
