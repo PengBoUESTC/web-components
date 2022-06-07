@@ -2,7 +2,6 @@ name: GitHub Actions Build and Deploy Demo
 on:
   push:
     branches:
-      - master
       - dev
 jobs:
   build-and-deploy:
