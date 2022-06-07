@@ -10,8 +10,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,json,scss,ts,vue}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "gitHooks": {
